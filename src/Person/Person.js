@@ -1,10 +1,10 @@
 import React from 'react';
 
-import classes from './Person.css';
+import pCssClasses from './Person.css';
 
 const person = props => {
   return (
-    <div className={classes.Person}>
+    <div className={pCssClasses.Person}>
       <p onClick={props.click}>
         I'm {props.name} and I am {props.age} years old!
       </p>
