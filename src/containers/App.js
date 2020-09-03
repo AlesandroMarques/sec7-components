@@ -5,6 +5,14 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log('[App.js ] constructor');
+   // can set state here
+    }
+  
+  // this calls constructor behind the seens 
   state = {
     persons: [
       { id: 'asfa1', name: 'Alesandro', age: 24 },
@@ -14,6 +22,21 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   };
+
+  static getDerivedStateFromProps(props,state){
+    console.log('[App.js] get derived state from props ', props);
+    return state;
+
+  }
+
+
+
+  componentDidMount(){
+
+    console.log('[App.js] componentDidMount');
+  }
+
+  
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -47,6 +70,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('[app.js] render()');
     let persons = null;
    
 
