@@ -6,6 +6,28 @@ import PersonComp from './Person/Person';
 //const persons = (props) => { 
 
 class Persons extends Component{
+    static getDirivedStateFromProps(props,state){
+        console.log('[Persons.js] getDirivedStateFromProps',props );
+        return state;
+    }
+
+    shouldComponentUpdate(nextProps,nextState){
+        
+        // have to return true or false 
+        console.log('[Persons.js] shouldCompnentUpdate',this.props, nextProps );
+        return !(this.props === nextProps);
+
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState){
+console.log('[Persons.js]  getSnapshotBeforeUpdate');
+        return {message: 'Snapshot!'};
+    }
+
+    componentDidUpdate(prevProps,prevState,snapshot){
+        console.log('[Persons.js]  componentDidUpdate');
+        console.log(snapshot);
+    }
+
     render(){
     console.log('[Persons.js] rendering....');
     return this.props.persons.map((person, index) => {
