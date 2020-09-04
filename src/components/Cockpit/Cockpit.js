@@ -7,7 +7,11 @@ const  cockpit = (props) => {
     useEffect( () => {
 
       console.log("[Cockpit.js] useEffect");
-    });
+      //Http Request, instead will demo with timeout 
+      setTimeout(()=>{
+        alert('saved data to cloud ');
+      },1000);
+    }, []);
 
     let btnClass = '';
     if(props.showPersons){
