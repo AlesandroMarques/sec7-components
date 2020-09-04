@@ -11,7 +11,15 @@ const  cockpit = (props) => {
       setTimeout(()=>{
         alert('saved data to cloud ');
       },1000);
+      //this is not run unless Cockpit is removed at somepoint in App.js
+      return () => {console.log('[Cockpit.js] cleanup work is useEffect');};
     }, []);
+
+    useEffect(()=> {
+      console.log("[Cockpit.js] 2nd useEffect!! ");
+      return () => {console.log('[Cockpit.js] 2nd cleanup work is useEffect');};
+
+    });
 
     let btnClass = '';
     if(props.showPersons){
